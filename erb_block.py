@@ -2,8 +2,6 @@ import sublime, sublime_plugin
 
 class ErbCommand(sublime_plugin.TextCommand):
   def run(self, edit):
-
-    print len(self.view.sel())
     if len(self.view.sel()) != 1:
       return
 
