@@ -1,4 +1,4 @@
-A Port of TextMate's ERB support for Sublime Text 2
+A Port of TextMate's ERB support for Sublime Text 2 (still in progress - see Coming Soon section)
 
 Usage
 =====
