@@ -9,7 +9,7 @@ Usage
   ln -s ~/your_cloned_repo_directory/erb_block.py ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User/erb_block.py
   ```
 
-  Open your User Keybinds File and add the following keybinding
+  Open your User Keybinding File and add the following keybinding
 
   { "keys": ["ctrl+shift+."], "command": "erb" }
 
