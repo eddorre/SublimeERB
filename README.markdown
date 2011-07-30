@@ -13,6 +13,10 @@ Usage
 
   { "keys": ["ctrl+shift+."], "command": "erb" }
 
+Coming Soon
+-----------
+Adding Support for Toggling ERB styles <%= %>, <%# %>, <%= -%>, <% %>, <% -%>
+
 Copyright
 ---------
 
