@@ -1,7 +1,7 @@
 import sublime, sublime_plugin
 import re
 
-ERB_BLOCKS = ['<%=  %>', '<%  %>', '<%-  -%>', '<%  -%>']
+ERB_BLOCKS = ['<%=  %>', '<%=  -%>', '<%#  %>', '<%  %>', '<%  -%>']
 
 class ErbCommand(sublime_plugin.TextCommand):
   def run(self, edit):
@@ -24,8 +24,8 @@ class ErbCommand(sublime_plugin.TextCommand):
     region = self.view.sel()[0]
 
     if region.begin() != 0:
-      selection = self.view.substr(sublime.Region(region.begin() - 4, region.end() + 4))
-      match =  re.match('<%(=?|-?)\s{2}(-?)%>', selection)
+      selection = self.view.substr(sublime.Region(region.begin() - 4, region.end() + 5))
+      match =  re.match('<%(=?|-?|#?)\s{2}(-?)%>', selection)
       if match:
         return True
       else:
@@ -35,7 +35,7 @@ class ErbCommand(sublime_plugin.TextCommand):
 
   def last_erb_block(self):
     region = self.view.sel()[0]
-    return self.view.substr(sublime.Region(region.begin() - 4, region.end() + 4))
+    return self.view.substr(sublime.Region(region.begin() - 4, region.end() + 5))
 
   def get_next_erb_block(self):
     current_index = ERB_BLOCKS.index(self.last_erb_block())
@@ -56,12 +56,8 @@ class ErbCommand(sublime_plugin.TextCommand):
     self.view.replace(edit, self.view.word(region.a), next_erb_block)
     self.view.sel().clear()
 
-    if ERB_BLOCKS.index(next_erb_block) == 1:
+    if ERB_BLOCKS.index(next_erb_block) == 3:
       self.view.sel().add(sublime.Region(region.begin() - 1))
-    elif ERB_BLOCKS.index(next_erb_block) == len(ERB_BLOCKS) - 1:
-      self.view.sel().add(sublime.Region(region.begin() - 1))
-    elif ERB_BLOCKS.index(next_erb_block) == 2:
-      self.view.sel().add(sublime.Region(region.begin() + 1))
     elif ERB_BLOCKS.index(next_erb_block) == 0:
       self.view.sel().add(sublime.Region(region.begin() + 1))
     else:
