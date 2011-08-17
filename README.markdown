@@ -15,7 +15,7 @@ Usage
 
 Coming Soon
 -----------
-Adding Support for Toggling ERB styles <%= %>, <%# %>, <%= -%>, <% %>, <% -%>
+Adding Support for Toggling ERB styles <%= %>, <%# %>, <%= -%>, <% %>, <% -%> when there is a selection.
 
 Copyright
 ---------
