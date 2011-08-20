@@ -15,7 +15,7 @@ Usage
 
 Sample
 ----------
-<img src="https://github.com/eddorre/SublimeERB/blob/master/erb.gif" />
+<img src="https://github.com/eddorre/SublimeERB/raw/master/erb.gif" />
 
 Coming Soon
 -----------
