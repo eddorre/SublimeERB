@@ -2,6 +2,7 @@ import sublime, sublime_plugin
 import re
 
 ERB_BLOCKS = ['<%=  %>', '<%=  -%>', '<%#  %>', '<%  %>', '<%  -%>']
+ERB_REGEX = '<%(=?|-?|#?)\s{2}(-?)%>'
 
 class ErbCommand(sublime_plugin.TextCommand):
   def run(self, edit):
@@ -9,36 +10,23 @@ class ErbCommand(sublime_plugin.TextCommand):
       return
 
     region = self.view.sel()[0]
-    cursor_location = region.begin()
     if region.empty():
-      if self.in_erb_block():
+      if self.toggle_erb_block():
         self.replace_erb_block(edit)
       else:
         self.insert_erb_block(edit, ERB_BLOCKS[0])
-        # txt = view.substr(sublime.Region(pos, end_position))
     else:
       currentWord = self.view.substr(region)
-      self.view.replace(edit, region, " <%%= %s  %%> " % currentWord)
+      self.view.replace(edit, region, "<%%= %s  %%>" % currentWord)
 
-  def in_erb_block(self):
-    region = self.view.sel()[0]
+  def toggle_erb_block(self):
+    last_command = self.view.command_history(0)[0]
+    if last_command == 'erb':
+      return True
+    else: return False
 
-    if region.begin() != 0:
-      selection = self.view.substr(sublime.Region(region.begin() - 4, region.end() + 5))
-      match =  re.match('<%(=?|-?|#?)\s{2}(-?)%>', selection)
-      if match:
-        return True
-      else:
-        return False
-    else:
-      return False
-
-  def last_erb_block(self):
-    region = self.view.sel()[0]
-    return self.view.substr(sublime.Region(region.begin() - 4, region.end() + 5))
-
-  def get_next_erb_block(self):
-    current_index = ERB_BLOCKS.index(self.last_erb_block())
+  def get_next_erb_block(self, selection):
+    current_index = ERB_BLOCKS.index(selection.strip())
     if current_index == len(ERB_BLOCKS) - 1:
       return ERB_BLOCKS[0]
     else:
@@ -46,14 +34,47 @@ class ErbCommand(sublime_plugin.TextCommand):
 
   def insert_erb_block(self, edit, erb_block):
     region = self.view.sel()[0]
-    self.view.insert(edit, region.begin(), erb_block)
+
+    left_most_character_region = sublime.Region(region.begin() - 1, region.begin())
+    left_most_character = self.view.substr(left_most_character_region)
+    right_most_character_region = sublime.Region(region.begin(), region.end() + 1)
+    right_most_character = self.view.substr(right_most_character_region)
+
+    if re.match('\s', left_most_character):
+      prefix = ""
+    else:
+      prefix = " "
+
+    if re.match('\s', right_most_character):
+      suffix = ""
+    else:
+      suffix = " "
+
+    self.view.insert(edit, region.begin(), prefix + erb_block + suffix)
+
     self.view.sel().clear()
-    self.view.sel().add(sublime.Region(region.begin() + 4))
+    if len(erb_block) > 6:
+      offset = 4 - len(suffix)
+    else:
+      offset = 3 - len(suffix)
+    self.view.sel().add(sublime.Region(region.begin() + len(prefix) + offset + len(suffix)))
 
   def replace_erb_block(self, edit):
     region = self.view.sel()[0]
-    next_erb_block = self.get_next_erb_block()
-    self.view.replace(edit, self.view.word(region.a), next_erb_block)
+    new_region = sublime.Region(region.begin() - 4, region.end() + 4)
+    selection = self.view.substr(new_region)
+
+    next_erb_block = self.get_next_erb_block(selection)
+
+    line = self.view.line(region)
+    if re.match('<%(=?|-?|#?)\s{2}(-?)%>', self.view.substr(line).strip()):
+      prefix = ""
+      suffix = ""
+    else:
+      prefix = " "
+      suffix = " "
+
+    self.view.replace(edit, self.view.word(region.a), prefix + next_erb_block + suffix)
     self.view.sel().clear()
 
     if ERB_BLOCKS.index(next_erb_block) == 3:
