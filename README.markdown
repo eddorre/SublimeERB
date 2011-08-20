@@ -13,6 +13,10 @@ Usage
 
   { "keys": ["ctrl+shift+."], "command": "erb" }
 
+Sample
+----------
+<img src="https://github.com/eddorre/SublimeERB/blob/master/erb.gif" />
+
 Coming Soon
 -----------
 Adding Support for Toggling ERB styles <%= %>, <%# %>, <%= -%>, <% %>, <% -%> when there is a selection.
