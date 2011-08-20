@@ -23,7 +23,8 @@ class ErbCommand(sublime_plugin.TextCommand):
     last_command = self.view.command_history(0)[0]
     if last_command == 'erb':
       return True
-    else: return False
+    else:
+      return False
 
   def get_next_erb_block(self, selection):
     current_index = ERB_BLOCKS.index(selection.strip())
@@ -57,29 +58,15 @@ class ErbCommand(sublime_plugin.TextCommand):
       offset = 4 - len(suffix)
     else:
       offset = 3 - len(suffix)
+
     self.view.sel().add(sublime.Region(region.begin() + len(prefix) + offset + len(suffix)))
 
   def replace_erb_block(self, edit):
-    region = self.view.sel()[0]
-    new_region = sublime.Region(region.begin() - 4, region.end() + 4)
-    selection = self.view.substr(new_region)
+    region = self.view.find(ERB_REGEX, self.view.sel()[0].begin() - 4)
+    word = self.view.substr(region)
 
-    next_erb_block = self.get_next_erb_block(selection)
+    next_erb_block = self.get_next_erb_block(word)
 
-    line = self.view.line(region)
-    if re.match('<%(=?|-?|#?)\s{2}(-?)%>', self.view.substr(line).strip()):
-      prefix = ""
-      suffix = ""
-    else:
-      prefix = " "
-      suffix = " "
-
-    self.view.replace(edit, self.view.word(region.a), prefix + next_erb_block + suffix)
-    self.view.sel().clear()
-
-    if ERB_BLOCKS.index(next_erb_block) == 3:
-      self.view.sel().add(sublime.Region(region.begin() - 1))
-    elif ERB_BLOCKS.index(next_erb_block) == 0:
-      self.view.sel().add(sublime.Region(region.begin() + 1))
-    else:
-      self.view.sel().add(sublime.Region(region.begin()))
+    if re.match(ERB_REGEX, word):
+      self.view.erase(edit, region)
+      self.insert_erb_block(edit, next_erb_block)
