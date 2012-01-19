@@ -17,7 +17,7 @@ class ErbCommand(sublime_plugin.TextCommand):
         self.insert_erb_block(edit, ERB_BLOCKS[0])
     else:
       currentWord = self.view.substr(region)
-      self.view.replace(edit, region, "<%%= %s  %%>" % currentWord)
+      self.view.replace(edit, region, "<%%= %s %%>" % currentWord)
 
   def toggle_erb_block(self):
     last_command = self.view.command_history(0)[0]
