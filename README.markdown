@@ -2,25 +2,35 @@ A Port of TextMate's ERB support for Sublime Text 2 (still in progress - see Com
 
 Usage
 =====
+
+### Installation ###
+
+  Suggest Installing [Sublime Package Controller](http://wbond.net/sublime_packages/package_control)
+
+  Then you can install "ERB Insert and Toggle Commands"
+  
+### Manual Installation ###
+
   Clone the repository and symlink file to Sublime's User Directory
 
   OS X Example
-  ```
+
+```
   git clone git@github.com:eddorre/SublimeERB.git ~/.sublime_erb
 
   ln -fs ~/.sublime_erb/erb_block.py ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
-  ```
+```
 
   Open your User Keybinding File and add the following keybinding
 
   { "keys": ["ctrl+shift+."], "command": "erb" }
 
-Update To Latest Version
-=====
-  ```
+### Update To Latest Version ###
+
+```
   cd ~/.sublime_erb
   git pull
-  ```
+```
 
 Sample
 ----------
