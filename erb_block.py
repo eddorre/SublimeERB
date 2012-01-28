@@ -39,7 +39,7 @@ class ErbCommand(sublime_plugin.TextCommand):
     self.view.insert(edit, region.begin(), erb_block)
 
     self.view.sel().clear()
-    if len(erb_block) > 6:
+    if len(erb_block) > 6 and erb_block != ERB_BLOCKS[-1]:
       offset = 4
     else:
       offset = 3
