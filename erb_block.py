@@ -20,8 +20,10 @@ class ErbCommand(sublime_plugin.TextCommand):
       self.view.replace(edit, region, "<%%= %s %%>" % currentWord)
 
   def toggle_erb_block(self):
-    last_command = self.view.command_history(0)[0]
-    if last_command == 'erb':
+    current_cursor = self.view.sel()[0].begin()
+    erb_exists = self.view.find(ERB_REGEX, self.view.sel()[0].begin() - 4)
+
+    if (erb_exists) and (erb_exists.contains(current_cursor)):
       return True
     else:
       return False
