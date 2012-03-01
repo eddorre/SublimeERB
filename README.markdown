@@ -30,7 +30,7 @@ Usage
   or only in a ruby html context
 
 ```
-  { "keys": ["ctrl+shift+<"], "command": "erb", "context":
+  { "keys": ["ctrl+shift+."], "command": "erb", "context":
     [
       { "key": "selector", "operator": "equal", "operand": "text.html.ruby, text.haml" }
     ]
