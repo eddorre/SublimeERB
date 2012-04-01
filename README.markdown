@@ -21,9 +21,21 @@ Usage
   ln -fs ~/.sublime_erb/erb_block.py ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
 ```
 
-  Open your User Keybinding File and add the following keybinding
+  Open your User Keybinding File and add the following keybinding to activate the toggle command in all file types
 
+```
   { "keys": ["ctrl+shift+."], "command": "erb" }
+```
+
+  or only in the most common ERB contexts
+
+```
+  { "keys": ["ctrl+shift+."], "command": "erb", "context":
+    [
+      { "key": "selector", "operator": "equal", "operand": "text.html.ruby, text.haml, source.yaml, source.css, source.scss, source.js, source.coffee" }
+    ]
+  }
+```
 
 ### Update To Latest Version ###
 
