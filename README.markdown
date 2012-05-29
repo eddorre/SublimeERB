@@ -5,10 +5,10 @@ Usage
 
 ### Installation ###
 
-  Suggest Installing [Sublime Package Controller](http://wbond.net/sublime_packages/package_control)
+  Suggest Installing [Sublime Package Control](http://wbond.net/sublime_packages/package_control)
 
   Then you can install "ERB Insert and Toggle Commands"
-  
+
 ### Manual Installation ###
 
   Clone the repository and symlink file to Sublime's User Directory
