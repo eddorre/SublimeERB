@@ -21,6 +21,14 @@ Usage
   ln -fs ~/.sublime_erb/erb_block.py ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
 ```
 
+  Linux Example
+
+```
+  git clone git@github.com:eddorre/SublimeERB.git ~/.sublime_erb
+
+  ln -fs ~/.sublime_erb/erb_block.py ~/.config/sublime-text-2/Packages/User
+```
+
   Open your User Keybinding File and add the following keybinding to activate the toggle command in all file types
 
 ```json
