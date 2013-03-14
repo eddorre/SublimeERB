@@ -23,7 +23,8 @@ Make sure to follow the [updated instructions](http://wbond.net/sublime_packages
 ```
   git clone git@github.com:eddorre/SublimeERB.git ~/.sublime_erb
 
-  ln -fs ~/.sublime_erb/erb_block.py ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User
+ln -fs ~/.sublime_erb/ ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/SublimeERB
+
 ```
 
   Linux Example
@@ -31,7 +32,7 @@ Make sure to follow the [updated instructions](http://wbond.net/sublime_packages
 ```
   git clone git@github.com:eddorre/SublimeERB.git ~/.sublime_erb
 
-  ln -fs ~/.sublime_erb/erb_block.py ~/.config/sublime-text-2/Packages/User
+  ln -fs ~/.sublime_erb/ ~/.config/sublime-text-2/Packages/SublimeERB
 ```
 
   Open your User Keybinding File and add the following keybinding to activate the toggle command in all file types
