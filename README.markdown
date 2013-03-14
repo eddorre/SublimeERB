@@ -58,7 +58,7 @@ Make sure to follow the [updated instructions](http://wbond.net/sublime_packages
 
 ```
   cd ~/.sublime_erb
-  git pull
+  git pull --rebase
 ```
 
 Sample
