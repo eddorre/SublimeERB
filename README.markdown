@@ -1,41 +1,44 @@
 A Port of TextMate's ERB support for Sublime Text 2 (still in progress - see Coming Soon section)
 
-Usage
-=====
+## Installation
 
-### Installation ###
+### Sublime Package Control
 
-  I suggest Installing [Sublime Package Control](http://wbond.net/sublime_packages/package_control)
+I suggest using [Sublime Package Control](http://wbond.net/sublime_packages/package_control). Once you have Sublime Package control installed, you can install "ERB Insert and Toggle Commands" in a few easy steps.
 
- Then you can install "ERB Insert and Toggle Commands"
+Press `ctrl+shift+p` to bring up Sublime's Command Palette, then type `install package` to bring up Package Control's package selector. It should be the first selection. Type "ERB Insert and Toggle Commands," which, again, should be the first selection, and then hit enter. You should now have the proper package installed, but you will still need to [add a keybinding to use it.](#add-keybinding)
 
-#### Sublime Text 3 Beta Install ####
+#### Sublime Text 3 Beta Install
 
 Make sure to follow the [updated instructions](http://wbond.net/sublime_packages/package_control/installation#ST3) for installing package control. Even with the package being installed via package control, you still need to modify you keybinding file as per the instructions below. The manual installation listed below still works for Sublime Text 3.
 
 
-### Manual Installation ###
+### Manual Installation
 
-  Clone the repository and symlink file to Sublime's User Directory
+Clone the repository and symlink file to Sublime's User Directory:
 
-  OS X Example
+#### OS X
 
 ```
-  git clone git@github.com:eddorre/SublimeERB.git ~/.sublime_erb
+git clone git@github.com:eddorre/SublimeERB.git ~/.sublime_erb
 
 ln -fs ~/.sublime_erb/ ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/SublimeERB
 
 ```
 
-  Linux Example
+#### Linux
 
 ```
-  git clone git@github.com:eddorre/SublimeERB.git ~/.sublime_erb
+git clone git@github.com:eddorre/SublimeERB.git ~/.sublime_erb
 
-  ln -fs ~/.sublime_erb/ ~/.config/sublime-text-2/Packages/SublimeERB
+ln -fs ~/.sublime_erb/ ~/.config/sublime-text-2/Packages/SublimeERB
 ```
 
-  Open your User Keybinding File and add the following keybinding to activate the toggle command in all file types
+## Usage
+
+### Add Keybinding
+
+Open your User Keybinding File and add the following keybinding to activate the toggle command in all file types:
 
 ```json
   [
@@ -43,7 +46,7 @@ ln -fs ~/.sublime_erb/ ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/
   ]
 ```
 
-  or only in the most common ERB contexts
+...or only in the most common ERB contexts:
 
 ```json
   [
@@ -55,7 +58,9 @@ ln -fs ~/.sublime_erb/ ~/Library/Application\ Support/Sublime\ Text\ 2/Packages/
   ]
 ```
 
-### Update To Latest Version ###
+Now you can use `ctrl+shift+.` to create and toggle between ERB tags. 
+
+## Update To Latest Version
 
 ```
   cd ~/.sublime_erb
