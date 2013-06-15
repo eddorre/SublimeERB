@@ -6,7 +6,7 @@ A Port of TextMate's ERB support for Sublime Text 2 (still in progress - see Com
 
 I suggest using [Sublime Package Control](http://wbond.net/sublime_packages/package_control). Once you have Sublime Package control installed, you can install "ERB Insert and Toggle Commands" in a few easy steps.
 
-Press `ctrl+shift+p` to bring up Sublime's Command Palette, then type `install package` to bring up Package Control's package selector. It should be the first selection. Type "ERB Insert and Toggle Commands," which, again, should be the first selection, and then hit enter. You should now have the proper package installed, but you will still need to [add a keybinding to use it.](#add-keybinding)
+Press `CTRL + SHIFT + P` on Windows and Linux and `CMD + SHIFT + P` on a Mac to bring up Sublime's Command Palette, then type `install package` to bring up Package Control's package selector. It should be the first selection. Type "ERB Insert and Toggle Commands," which, again, should be the first selection, and then hit enter. You should now have the proper package installed, but you will still need to [add a keybinding to use it.](#add-keybinding)
 
 #### Sublime Text 3 Beta Install
 
@@ -58,7 +58,7 @@ Open your User Keybinding File and add the following keybinding to activate the 
   ]
 ```
 
-Now you can use `ctrl+shift+.` to create and toggle between ERB tags. 
+Now you can use `ctrl+shift+.` to create and toggle between ERB tags. NOTE: On a Mac use the command key for the ctrl key.
 
 ## Update To Latest Version
 
