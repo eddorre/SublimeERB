@@ -58,7 +58,7 @@ class ErbCommand(sublime_plugin.TextCommand):
     # searching for a closing brcket in the right region
     found_closers = list(re.finditer(ERB_CLOSER_REGEX, self.view.substr(right_region)))
     if len(found_closers) > 0:
-      # if found, creating a new region, using the first match — the leftmost bracket found
+      # if found, creating a new region, using the first match - the leftmost bracket found
       closer = sublime.Region(right_region.begin() + found_closers[0].start(), right_region.begin() + found_closers[0].end())
 
     return opener, closer
