@@ -1,4 +1,4 @@
-A Port of TextMate's ERB support for Sublime Text 2 (still in progress - see Coming Soon section)
+A Port of TextMate's ERB support for Sublime Text 2
 
 ## Installation
 
@@ -70,10 +70,6 @@ Now you can use `ctrl+shift+.` to create and toggle between ERB tags. NOTE: On a
 Sample
 ----------
 <img src="https://github.com/eddorre/SublimeERB/raw/master/erb.gif" />
-
-Coming Soon
------------
-Adding Support for Toggling ERB styles <%= %>, <%# %>, <%= -%>, <% %>, <% -%> when there is a selection.
 
 Copyright
 ---------
