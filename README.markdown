@@ -10,7 +10,7 @@ Press `CTRL + SHIFT + P` on Windows and Linux and `CMD + SHIFT + P` on a Mac to 
 
 #### Sublime Text 3 Beta Install
 
-Make sure to follow the [updated instructions](http://wbond.net/sublime_packages/package_control/installation#st3) for installing package control. Even with the package being installed via package control, you still need to modify you keybinding file as per the instructions below. The manual installation listed below still works for Sublime Text 3.
+Make sure to follow the [updated instructions](http://wbond.net/sublime_packages/package_control/installation#st3) for installing package control. Even with the package being installed via package control, you still need to modify your keybinding file as per the instructions below. The manual installation listed below still works for Sublime Text 3.
 
 
 ### Manual Installation
