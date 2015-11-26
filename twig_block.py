@@ -1,7 +1,7 @@
 import sublime, sublime_plugin
 import re
 
-TWIG_BLOCKS = [['<%=', '%>'], ['<%', '%>'], ['<%-', '-%>'], ['<%=', '-%>'], ['<%#', '%>'], ['<%', '-%>']]
+TWIG_BLOCKS = [['{{', '}}'], ['{%', '%}'], ['{#', '#}']]
 TWIG_REGEX = '<%(=?|-?|#?)\s{2}(-?)%>'
 
 # matches opening bracket that is not followed by the closing one
