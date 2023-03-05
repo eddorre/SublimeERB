@@ -52,7 +52,7 @@ Open your User Keybinding File and add the following keybinding to activate the 
   [
     { "keys": ["ctrl+shift+."], "command": "erb", "context":
       [
-        { "key": "selector", "operator": "equal", "operand": "text.html.ruby, text.haml, source.yaml, source.css, source.scss, source.js, source.coffee" }
+        { "key": "selector", "operator": "equal", "operand": "text.html.rails, text.html.ruby, text.haml, source.yaml, source.css, source.scss, source.js, source.coffee" }
       ]
     }
   ]
